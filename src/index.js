@@ -174,6 +174,27 @@ async function handleRequest(request) {
 		.tooltip:hover .tooltiptext {
 		  visibility: visible;
 		}
+		/* Media queries */
+		@media only screen and (max-width: 768px) {
+		  .container {
+			width: 90%;
+			padding: 20px;
+		  }
+		  .row {
+			display: block;
+		  }
+		  .box {
+			width: 100%;
+			margin: 0 0 20px;
+		  }
+		  .button {
+			display: block;
+			margin: 10px auto;
+		  }
+		  .footer {
+			margin: 10px auto;
+		  }
+		}
 	  </style>
 	  <script>
 		// Initialize an empty object to store the collected information
@@ -521,7 +542,7 @@ async function handleRequest(request) {
 		}
 	  </script>
 	</body>
-  </html>  
+  </html>
 	`;
 
   return new Response(body, {
