@@ -9,8 +9,6 @@ jobs:
     name: Deploy Cloudflare Worker
     steps:
       - uses: actions/checkout@v2.0.0
-      - name: install dependencies
-        run: 'npm install'
       - name: install wrangler 
         run: 'npm i @cloudflare/wrangler g'
       - name: deploy using wrangler 
