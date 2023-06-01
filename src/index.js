@@ -120,6 +120,10 @@ async function handleRequest(request) {
 		  margin: 10px 0;
 		  overflow-x: auto;
 		}
+		.variable {
+			color: #F48120;
+			font-weight: bold;
+		}
 		/* Footer */
 		.footer {
 		  background-color: #fff;
@@ -390,7 +394,22 @@ async function handleRequest(request) {
 		  </div>
 		  <div class="box">
             <h2 class="subtitle">Hello <i>Stranger</i>!</h2>
-            <p id="map">You seem to be connecting from ${request.cf.city}, ${request.cf.country}.</p>
+            <p id="map">You seem to be located around <span class="variable">${request.cf.city}</span>, <span class="variable">${request.cf.country}</span>.</p>
+          </div>
+		</div>
+		<div class="row">
+		  <div class="box">
+			<h2 class="subtitle">Network Summary</h2>
+			<p>You seem to be connecting to the <span class="variable">${request.cf.colo}</span> Point of Presence (PoP).</p>
+			<p>Your ISP seems to be <span class="variable">${request.cf.asOrganization} (${request.cf.asn}) - <a href="https://www.peeringdb.com/asn/${request.cf.asn}" target="_blank" rel="nofollow external noreferrer">PeeringDB</a></span>.</p>
+			<p>Your IP address is <span class="variable">${request.headers.get('X-Real-IP')}</span>.</p>
+			<p></p>
+		  </div>
+		  <div class="box">
+            <h2 class="subtitle">Request Summary</h2>
+            <p>You are using <span class="variable">${request.cf.httpProtocol}</span> encrypted with <span class="variable">${request.cf.tlsVersion}</span>.</p>
+			<p>Your User-Agent is <span class="variable">${request.headers.get('User-Agent')}</span>.</p>
+			<p>You are on a <span class="variable">${request.headers.get('CF-Device-Type')}</span>.</p>
           </div>
 		</div>
 		<div class="row">
